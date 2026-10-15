@@ -9,7 +9,9 @@ only in the pull request title, which becomes the squash-merge subject.
 
 - Skills teach an assistant how to combine Gumnut Photos tools for a job. Do
   not restate what a tool's own description or the server instructions
-  already say; add the sequence, the judgment calls, and the pitfalls.
+  already say, and leave limits, pagination, and parameter rules to the tool
+  schemas. Add judgment and pitfalls as principles with the conditions that
+  change them, not as fixed tool sequences.
 - Name tools by their exact MCP tool names in backticks, and only tools the
   Gumnut Photos MCP server exposes. A REST-only endpoint is invisible to the
   assistant.
