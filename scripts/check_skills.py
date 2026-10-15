@@ -24,7 +24,12 @@ SKILLS_DIR = Path(__file__).resolve().parent.parent / "gumnut-photos" / "skills"
 
 
 def parse_front_matter(text: str) -> dict[str, str] | None:
-    """Return top-level front-matter keys and their (unfolded) scalar values."""
+    """Return top-level front-matter keys and their (unfolded) scalar values.
+
+    Every unindented line counts as a top-level key, whatever its syntax, so an
+    unusual key form shows up as an unsupported key instead of slipping past
+    the allowlist. A line with no colon is returned whole as its own key.
+    """
     lines = text.splitlines()
     if not lines or lines[0].strip() != "---":
         return None
@@ -36,12 +41,18 @@ def parse_front_matter(text: str) -> dict[str, str] | None:
     fields: dict[str, str] = {}
     key = None
     for line in lines[1:end]:
-        match = re.match(r"^([\"']?)([A-Za-z][\w-]*)\1:\s*(.*)$", line)
-        if match:
-            _, key, value = match.groups()
-            fields[key] = "" if value in (">", "|", ">-", "|-") else value.strip("\"'")
-        elif key and line.startswith((" ", "\t")):
-            fields[key] = f"{fields[key]} {line.strip()}".strip()
+        if not line.strip() or line.lstrip().startswith("#"):
+            continue
+        if line.startswith((" ", "\t")):
+            if key:
+                fields[key] = f"{fields[key]} {line.strip()}".strip()
+            continue
+        key, _, value = line.partition(":")
+        key = key.strip()
+        if len(key) >= 2 and key[0] == key[-1] and key[0] in "\"'":
+            key = key[1:-1]
+        value = value.strip()
+        fields[key] = "" if value in (">", "|", ">-", "|-") else value.strip("\"'")
     return fields
 
 
