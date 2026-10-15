@@ -48,11 +48,13 @@ def parse_front_matter(text: str) -> dict | str:
     return fields
 
 
-def check_text_field(skill: str, fields: dict, key: str, max_length: int) -> list[str]:
+def check_text_field(
+    skill: str, fields: dict, key: str, max_length: int | None = None
+) -> list[str]:
     value = fields.get(key)
     if not isinstance(value, str) or not value.strip():
         return [f"{skill}: {key} must be non-empty text"]
-    if len(value) > max_length:
+    if max_length is not None and len(value) > max_length:
         return [f"{skill}: {key} is {len(value)} characters (max {max_length})"]
     return []
 
@@ -76,7 +78,11 @@ def check_skill(skill_dir: Path) -> list[str]:
     name = fields.get("name")
     if name != skill:
         errors.append(f"{skill}: name {name!r} must match the folder name")
-    if not isinstance(name, str) or not NAME_PATTERN.match(name) or len(name) > MAX_NAME_LENGTH:
+    if (
+        not isinstance(name, str)
+        or not NAME_PATTERN.match(name)
+        or len(name) > MAX_NAME_LENGTH
+    ):
         errors.append(
             f"{skill}: name must be lowercase letters, digits, and single "
             f"hyphens, at most {MAX_NAME_LENGTH} characters"
@@ -84,7 +90,18 @@ def check_skill(skill_dir: Path) -> list[str]:
 
     errors += check_text_field(skill, fields, "description", MAX_DESCRIPTION_LENGTH)
     if "compatibility" in fields:
-        errors += check_text_field(skill, fields, "compatibility", MAX_COMPATIBILITY_LENGTH)
+        errors += check_text_field(
+            skill, fields, "compatibility", MAX_COMPATIBILITY_LENGTH
+        )
+    if "license" in fields:
+        errors += check_text_field(skill, fields, "license")
+    if "metadata" in fields:
+        metadata = fields["metadata"]
+        if not isinstance(metadata, dict) or not all(
+            isinstance(key, str) and isinstance(value, str)
+            for key, value in metadata.items()
+        ):
+            errors.append(f"{skill}: metadata must map text keys to text values")
 
     line_count = len(text.splitlines())
     if line_count > MAX_SKILL_LINES:
@@ -96,7 +113,11 @@ def check_skill(skill_dir: Path) -> list[str]:
 
 
 def main() -> int:
-    skill_dirs = sorted(p for p in SKILLS_DIR.glob("*") if p.is_dir()) if SKILLS_DIR.is_dir() else []
+    skill_dirs = (
+        sorted(p for p in SKILLS_DIR.glob("*") if p.is_dir())
+        if SKILLS_DIR.is_dir()
+        else []
+    )
     errors = [error for skill_dir in skill_dirs for error in check_skill(skill_dir)]
     for error in errors:
         print(f"error: {error}", file=sys.stderr)
