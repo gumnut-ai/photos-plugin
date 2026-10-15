@@ -47,15 +47,15 @@ everything.
   people together are often the ones users value most.
 - **The generated `description`** tells you what is happening (the toast, the
   summit, the first steps), including expressions and composition.
-- **`quality_score`** keeps blurry, badly exposed, or accidental shots out and
-  breaks ties between similar photos. A slightly soft photo of a milestone
-  can still beat a sharp photo of a parking lot, and an unscored photo is not
-  a bad one.
+- **`quality_score`** keeps blurry, badly exposed, or accidental shots out.
+  It is coarse, so similar frames often tie; compare those by eye. A slightly
+  soft photo of a milestone can still beat a sharp photo of a parking lot, and
+  an unscored photo is not a bad one.
 
 ## Remove near-duplicates and build variety
 
 - Assets that share a `stack_id` are one burst or group of similar shots. Keep
-  one per stack, normally a favorite or the highest-quality frame, unless the
+  one per stack, normally a favorite or the best-looking frame, unless the
   user wants the burst.
 - Photos seconds apart with near-identical descriptions are usually the same
   moment even without a stack.

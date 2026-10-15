@@ -18,9 +18,10 @@ best place to start.
 
 Identity can come from the user or from the photos themselves. Name tags,
 yearbook pages, team rosters, playbills, and captions show faces next to
-names, and Gumnut does not read them on its own. When the task allows naming
-and the text clearly belongs to one face, apply the name. Ask when it is
-unclear which face a name belongs to, or when the evidence conflicts.
+names, and Gumnut does not connect those names to faces on its own. When
+the task allows naming and the text clearly belongs to one face, apply the
+name. Ask when it is unclear which face a name belongs to, or when the
+evidence conflicts.
 
 People who are not worth naming, such as strangers in the background, can be
 hidden (`is_hidden`). Hiding is reversible and keeps them out of the way.
@@ -39,12 +40,10 @@ different glasses.
 
 ## Fix faces assigned to the wrong person
 
-Move a face to the right person with `update_face`, or detach it with
-`person_id=null` when nobody knows who it is. Detaching is gentler than
-`delete_face`, which removes the detection; delete only boxes that are not
-faces at all. For a face with no person yet, `list_faces` with
-`include=cluster_assignment` suggests the nearest people; treat those as
-suggestions, not answers.
+When nobody knows who a face is, detach it from the person rather than
+deleting it; delete only boxes that are not faces at all. For a face with no
+person yet, `list_faces` with `include=cluster_assignment` suggests the
+nearest people; treat those as suggestions, not answers.
 
 ## Add a face the detector missed
 

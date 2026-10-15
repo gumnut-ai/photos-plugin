@@ -13,7 +13,7 @@ boundaries down from the library before collecting photos.
 
 Look before creating. If an album already covers the event, offer to add to
 it rather than making a second one. When you already hold a photo from the
-event, the albums that contain it are a quick way to find one.
+event, check which albums contain it.
 
 ## Find the event's boundaries
 
@@ -55,11 +55,7 @@ were uncertain, show the user a sample sized for them to judge, with the total
 count and what you left out, before writing. If they already asked for the
 album and the boundaries are clear, go ahead.
 
-Albums only reference photos. To take a photo out of an album, use
-`remove_assets_from_album`, not `trash_assets`.
-
 ## Finding photos that still need an album
 
-`album_filter=not_in_album` finds photos that are in no album at all.
-Counting them by month or clustering them on a map is a good way to suggest
-which events are still unorganized.
+To suggest events that are still unorganized, count or cluster photos with
+`album_filter=not_in_album` by month or on a map.
