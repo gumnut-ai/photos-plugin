@@ -23,4 +23,4 @@ jobs:
           claude plugin validate gumnut-photos
           claude plugin validate .
       - name: Check skills stay portable across Claude and ChatGPT
-        run: python3 scripts/check_skills.py
+        run: pipx run scripts/check_skills.py

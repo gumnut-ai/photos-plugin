@@ -26,7 +26,7 @@ Source for the Gumnut Photos plugin, which adds skills on top of the
 ```sh
 claude plugin validate gumnut-photos
 claude plugin validate .
-python3 scripts/check_skills.py
+uv run scripts/check_skills.py
 ```
 
 CI runs the same checks on every pull request.
