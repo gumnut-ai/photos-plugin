@@ -1,0 +1,14 @@
+{
+  "name": "gumnut-photos",
+  "displayName": "Gumnut Photos",
+  "version": "0.1.0",
+  "description": "Search, organize, and curate your Gumnut Photos library: find photos by who, what, where, and when, build albums, and tidy people and faces.",
+  "author": {
+    "name": "Gumnut Labs",
+    "url": "https://www.gumnut.ai"
+  },
+  "homepage": "https://docs.gumnut.ai/guides/mcp/overview",
+  "repository": "https://github.com/gumnut-ai/photos-plugin",
+  "license": "Apache-2.0",
+  "keywords": ["photos", "photo library", "albums", "faces", "mcp"]
+}

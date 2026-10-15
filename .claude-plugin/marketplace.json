@@ -1,0 +1,16 @@
+{
+  "name": "gumnut",
+  "description": "Gumnut plugins for Claude.",
+  "owner": {
+    "name": "Gumnut Labs",
+    "url": "https://www.gumnut.ai"
+  },
+  "plugins": [
+    {
+      "name": "gumnut-photos",
+      "displayName": "Gumnut Photos",
+      "source": "./gumnut-photos",
+      "description": "Search, organize, and curate your Gumnut Photos library: find photos by who, what, where, and when, build albums, and tidy people and faces."
+    }
+  ]
+}
