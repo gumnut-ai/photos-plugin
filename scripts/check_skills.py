@@ -36,9 +36,9 @@ def parse_front_matter(text: str) -> dict[str, str] | None:
     fields: dict[str, str] = {}
     key = None
     for line in lines[1:end]:
-        match = re.match(r"^([A-Za-z][\w-]*):\s*(.*)$", line)
+        match = re.match(r"^([\"']?)([A-Za-z][\w-]*)\1:\s*(.*)$", line)
         if match:
-            key, value = match.groups()
+            _, key, value = match.groups()
             fields[key] = "" if value in (">", "|", ">-", "|-") else value.strip("\"'")
         elif key and line.startswith((" ", "\t")):
             fields[key] = f"{fields[key]} {line.strip()}".strip()

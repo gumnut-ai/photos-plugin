@@ -1,8 +1,9 @@
 # Agent guide
 
-This repository is public. Keep internal tracker identifiers and links,
-private repository names, account details, and reviewer credentials out of
-files, commit messages, branch names, and pull request bodies.
+This repository is public. Keep internal tracker links, private repository
+names, account details, and reviewer credentials out of files, commit
+messages, branch names, and pull request bodies. A tracker issue key belongs
+only in the pull request title, which becomes the squash-merge subject.
 
 ## Writing skills
 
