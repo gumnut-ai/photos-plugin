@@ -12,9 +12,8 @@ files, commit messages, branch names, and pull request bodies.
 - Name tools by their exact MCP tool names in backticks, and only tools the
   Gumnut Photos MCP server exposes. A REST-only endpoint is invisible to the
   assistant.
-- Front matter may contain only `name`, `description`, `license`,
-  `compatibility`, and `metadata`; claude.ai rejects other keys. `name`
-  matches the folder name. `scripts/check_skills.py` enforces this.
+- Skill front matter must pass `scripts/check_skills.py`, which allows only
+  the keys both Claude and ChatGPT accept.
 - Refer to "the assistant" rather than a specific product, since the same
   skill runs in Claude and ChatGPT.
 - `gumnut-photos/README.md` is the public Claude directory listing, not

@@ -3,8 +3,11 @@
 
 `claude plugin validate` checks that front matter parses. This adds the
 portability rules from the Agent Skills specification (https://agentskills.io)
-that it does not enforce: claude.ai rejects front-matter keys other than the
-ones in ALLOWED_KEYS, and both hosts require `name` to match the skill's folder.
+that it does not enforce: front matter uses only keys both hosts accept
+(claude.ai rejects any others; its Claude-specific `allowed-tools` is left
+out), and `name` matches the skill's folder. The line limit is the
+specification's recommendation, kept so long guidance moves into supporting
+files.
 """
 
 import re
