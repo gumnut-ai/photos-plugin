@@ -22,7 +22,8 @@ Turn that into explicit bounds using the library itself:
 
 - **When:** daily asset counts (`get_asset_counts`) over a generous window
   around the remembered dates show the event as a run of busy days, or one
-  busy afternoon for a party.
+  busy day for a party. The photos' own capture times narrow it to the hours
+  when that matters.
 - **Where:** geo clusters (`get_geo_clusters`) show where the photos
   concentrate, which confirms the right trip or separates it from home photos
   taken on the same days. Photos without location data can still belong to
@@ -49,11 +50,11 @@ set.
 
 ## Show and write the selection
 
-Collect the whole set inside the boundaries, paging until nothing is left,
-before you count or add it. When the selection is large or the boundaries
-were uncertain, show the user a sample sized for them to judge, with the total
-count and what you left out, before writing. If they already asked for the
-album and the boundaries are clear, go ahead.
+Make sure counts and additions cover the full intended scope. When the
+selection is large or the boundaries were uncertain, show the user a sample
+sized for them to judge, with the total count and what you left out, before
+writing. If they already asked for the album and the boundaries are clear, go
+ahead.
 
 ## Finding photos that still need an album
 
