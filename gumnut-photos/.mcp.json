@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "gumnut-photos": {
+      "type": "http",
+      "url": "https://api.gumnut.ai/mcp"
+    }
+  }
+}
