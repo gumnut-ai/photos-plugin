@@ -7,14 +7,16 @@ description: Build or update a Gumnut Photos album for a trip, event, or period,
 
 An event album needs two things the user rarely states exactly: the event's
 boundaries (when and where it happened) and how selective to be. Pin the
-boundaries down from the library before collecting photos, and make the
-selection visible before writing anything.
+boundaries down from the library before collecting photos, and make a large
+selection visible before writing it.
 
 ## 1. Check for an existing album
 
 Look before creating. `list_albums` has no name filter, so page through it
-and compare names, descriptions, and date ranges with the event. If an album
-already covers the event, offer to add to it rather than making a second one.
+and compare names, descriptions, and date ranges with the event. When you
+already hold a photo from the event, `list_albums` with `asset_id` finds its
+albums directly. If an album already covers the event, offer to add to it
+rather than making a second one.
 
 ## 2. Find the event's boundaries
 
@@ -23,9 +25,10 @@ Turn that into explicit bounds using the library itself:
 
 - **When:** call `get_asset_counts` with `group_by=day` over a generous window
   around the remembered dates. A trip shows up as a run of busy days; a party
-  as one busy afternoon. Use the edges of that run as
-  `local_datetime_after` and `local_datetime_before`. Times are the local
-  wall-clock time where each photo was taken, so trips abroad stay on their
+  as one busy afternoon. Both date bounds are exclusive, so set
+  `local_datetime_after` just before the first busy day and
+  `local_datetime_before` to the start of the day after the last one. Pass
+  bounds without a timezone (no `Z` or offset) so a trip abroad stays on its
   local calendar.
 - **Where:** if the event has a place, `get_geo_clusters` over the region
   shows where the photos concentrate. Use those clusters to confirm you have
@@ -58,19 +61,19 @@ one frame per stack.
 
 ## 4. Show the selection, then write it
 
-For more than a handful of photos, show the proposed set first with
-`list_assets` and `ids=[...]`, along with the count and anything you left out
-and why. Once the user agrees:
+For a large or uncertain selection, show the proposed set first with
+`list_assets` and `ids=[...]` (pass a `limit` above the default 20), along
+with the count and anything you left out and why. If the user already asked
+for the album and the boundaries are clear, go ahead:
 
 1. Create the album with `create_album`, using a name the user would
    recognize and a short description of the event.
-2. Add the photos with `add_assets_to_album`, at most 200 IDs per call. It is
-   idempotent, so retrying a failed batch is safe.
+2. Add the photos with `add_assets_to_album` in batches of up to 200 IDs.
+   Retrying a failed batch is safe.
 3. Show the result with `get_album`.
 
-Albums only reference photos: deleting an album or removing photos from it
-never removes the photos from the library. Moving a photo to trash
-(`trash_assets`) is different; do not use it to tidy an album.
+Albums only reference photos. To take a photo out of an album, use
+`remove_assets_from_album`, not `trash_assets`.
 
 ## Finding photos that still need an album
 

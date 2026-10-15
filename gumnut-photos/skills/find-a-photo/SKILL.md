@@ -21,9 +21,8 @@ treat the fuzzy facts as wide ranges you can tighten later.
 - **Content** (objects, activities, scenes, text visible in the photo) goes
   in the `search_assets` `query` as a short visual phrase: "man holding a
   large fish on a boat" rather than the user's whole sentence.
-- **Kind of media:** `media_type=video` for videos. Videos match search
-  through their text and metadata, not their visual content, so rely more on
-  people, dates, and places to find a video.
+- **Videos** match search through their text and metadata, not their visual
+  content, so lean on people, dates, and places to find one.
 
 ## 2. Search, then relax one constraint at a time
 
@@ -46,8 +45,7 @@ with tight date bounds returns everything from those hours, in order.
 
 Generated descriptions identify most photos. When the user needs a detail the
 description cannot confirm (text on a receipt or sign, a number, who is
-holding what), look with `view_asset`. Its default size is large enough to
-read text.
+holding what), look with `view_asset`.
 
 ## 4. Show it
 

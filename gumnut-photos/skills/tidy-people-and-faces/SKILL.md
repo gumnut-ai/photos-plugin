@@ -14,11 +14,15 @@ show them, the user confirms, and then you make the change.
 
 ## Name the people who matter first
 
-`list_people` returns only named people by default. To find people worth
-naming, list unnamed ones (`name_filter=unnamed`) sorted by
-`asset_count_desc`: the largest unnamed groups are usually family and close
-friends. Show a few at a time (`get_person` displays a person with their
-photos) and ask who they are. Apply several names at once with `bulk_update_people`.
+To find people worth naming, list unnamed people (`name_filter=unnamed`)
+sorted by `asset_count_desc`: the largest unnamed groups are usually family
+and close friends. Show a few at a time (`get_person` displays a person with
+their photos) and ask who they are. Apply several names at once with
+`bulk_update_people`.
+
+Names are unique within a library. If naming an unnamed person fails with a
+conflict because another person already has that name, the same person is
+probably split across two records: offer to merge them instead.
 
 People who are not worth naming, such as strangers in the background, can be
 hidden (`is_hidden`) instead of deleted. Hiding is reversible and keeps them
@@ -26,16 +30,14 @@ out of the way.
 
 ## Merge a person who is split
 
-Signs of a split: two records with the same or similar names, or an unnamed
-group whose faces look like a named person at a different age or with
-different glasses.
+Signs of a split: a name conflict as above, similar names ("Bob" and "Bobby
+Smith"), or an unnamed group whose faces look like a named person at a
+different age or with different glasses.
 
 - Show both records side by side and get the user's confirmation before
-  merging. `merge_people` permanently deletes the source records and cannot
-  be undone.
+  calling `merge_people`; it cannot be undone.
 - Make the record the user has named, or the larger one, the primary person.
   The source records are deleted and their faces move to the primary.
-- Up to 50 source people can be merged into one primary in a single call.
 
 ## Fix faces assigned to the wrong person
 
@@ -46,9 +48,10 @@ detach it with `person_id=null` when the user does not know who it is.
 Detaching is gentler than `delete_face`, which removes the detection
 entirely; delete only boxes that are not faces at all.
 
-For faces with no person, `list_faces` with `include=cluster_assignment` lists
-the nearest candidate people for each face. Treat the candidates as
-suggestions to show the user, not answers.
+For a photo the user is looking at, `list_faces` with `asset_id` and
+`include=cluster_assignment` shows each face's nearest candidate people,
+including for faces with no person yet. Treat the candidates as suggestions
+to show the user, not answers.
 
 ## Add a face the detector missed
 
@@ -63,6 +66,6 @@ When the user says someone is in a photo but Gumnut does not show them:
 
 ## Changes that cannot be undone
 
-Merging people and deleting people or faces are permanent. Describe exactly
-what will change and get an explicit yes first. Naming, hiding, and moving a
-face to another person can all be reversed later.
+Merging people and deleting people or faces are permanent, so describe
+exactly what will change and get an explicit yes first. Naming, hiding, and
+moving a face to another person can all be reversed later.
