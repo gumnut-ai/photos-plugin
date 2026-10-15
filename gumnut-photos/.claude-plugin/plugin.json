@@ -2,7 +2,7 @@
   "name": "gumnut-photos",
   "displayName": "Gumnut Photos",
   "version": "0.1.0",
-  "description": "Search, organize, and curate your Gumnut Photos library: find photos by who, what, where, and when, build albums, and tidy people and faces.",
+  "description": "Gumnut Photos helps users search and browse their private photo libraries, organize photos by albums and people, update photo metadata, and create photo books and other keepsakes. Gumnut provides a secure and privacy-sensitive way for you to use agents to curate, manage, and create with your personal or company photos.",
   "author": {
     "name": "Gumnut Labs",
     "url": "https://www.gumnut.ai"
@@ -10,5 +10,25 @@
   "homepage": "https://docs.gumnut.ai/guides/mcp/overview",
   "repository": "https://github.com/gumnut-ai/photos-plugin",
   "license": "Apache-2.0",
-  "keywords": ["photos", "photo library", "albums", "faces", "mcp"]
+  "keywords": [
+    "photos",
+    "photo library",
+    "photo management",
+    "photo organization",
+    "photo search",
+    "image search",
+    "videos",
+    "albums",
+    "people",
+    "faces",
+    "face recognition",
+    "curation",
+    "memories",
+    "family photos",
+    "travel photos",
+    "photo books",
+    "keepsakes",
+    "privacy",
+    "mcp"
+  ]
 }

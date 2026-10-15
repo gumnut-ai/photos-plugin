@@ -4,6 +4,10 @@ Source for the Gumnut Photos plugin, which adds skills on top of the
 [Gumnut Photos MCP server](https://docs.gumnut.ai/guides/mcp/overview)
 (`https://api.gumnut.ai/mcp`). The same skills ship to Claude and to ChatGPT.
 
+Install the published plugin from
+[Claude](https://claude.ai/directory/gumnut-photos) or
+[ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6a7d02182da08191b45a4918188532f3).
+
 ## Layout
 
 | Path | Purpose |

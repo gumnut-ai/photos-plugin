@@ -10,8 +10,8 @@ album, or tidying up the people Gumnut recognizes.
 ## How to use it
 
 1. Add the plugin, then connect **Gumnut Photos** from the plugin's
-   connectors and sign in with your Gumnut account. New to Gumnut? Create an
-   account at [gumnut.ai](https://www.gumnut.ai).
+   connectors and sign in with your Gumnut account. New to Gumnut?
+   [Create an account](https://app.gumnut.ai/sign-up).
 2. Ask for what you want in plain language, for example "Make an album of the
    best photos from our Japan trip" or "Who appears most often in last
    summer's photos?" Your assistant picks up the relevant skill automatically.

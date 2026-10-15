@@ -10,7 +10,7 @@
       "name": "gumnut-photos",
       "displayName": "Gumnut Photos",
       "source": "./gumnut-photos",
-      "description": "Search, organize, and curate your Gumnut Photos library: find photos by who, what, where, and when, build albums, and tidy people and faces."
+      "description": "Gumnut Photos helps users search and browse their private photo libraries, organize photos by albums and people, update photo metadata, and create photo books and other keepsakes. Gumnut provides a secure and privacy-sensitive way for you to use agents to curate, manage, and create with your personal or company photos."
     }
   ]
 }
