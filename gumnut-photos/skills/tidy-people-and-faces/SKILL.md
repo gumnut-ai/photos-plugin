@@ -1,6 +1,6 @@
 ---
 name: tidy-people-and-faces
-description: Help the user organize the people Gumnut Photos recognizes by naming people, merging duplicate people, fixing faces assigned to the wrong person, and adding faces the detector missed. Use when the user asks who is in their library, wants to name or correct people, or says a person is split, mixed up, or missing from photos.
+description: Help the user organize the people Gumnut Photos recognizes by naming people, merging duplicate people, fixing faces assigned to the wrong person, and adding faces the detector missed. Use when the user asks who is in their library, wants to name or correct people, asks whether people are recognized correctly in some photos, or says a person is split, mixed up, or missing from photos.
 ---
 
 # Tidy people and faces
