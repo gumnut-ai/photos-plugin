@@ -29,12 +29,12 @@ matches several people or two trips that both match "Japan".
 
 ## Gather candidates
 
-An album the user made for the event is strong evidence of what belongs, but
-it may be incomplete or a bulk import, so widen with people, date, and place
-filters when the request reaches beyond it. Use content search for what is in
-the photos. A content search ranks a limited candidate pool, so for a large
-event search in slices (per day, person, or activity) rather than once for
-everything.
+An album the user made for the event shows what they kept, but it is rarely
+the whole event and may be a bulk import: gather the event by date, place, and
+people too, and treat the album as part of the pool. Use content search for
+what is in the photos. A content search ranks a limited candidate pool, so for
+a large event search in slices (per day, person, or activity) rather than once
+for everything.
 
 ## Weigh the evidence for the purpose
 
