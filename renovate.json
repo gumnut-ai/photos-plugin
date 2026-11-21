@@ -2,5 +2,33 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "enabledManagers": [
+    "github-actions"
+  ],
+  "includePaths": [
+    ".github/workflows/**"
+  ],
+  "minimumReleaseAge": "14 days",
+  "minimumReleaseAgeBehaviour": "timestamp-required",
+  "internalChecksFilter": "strict",
+  "automerge": false,
+  "prConcurrentLimit": 1,
+  "packageRules": [
+    {
+      "description": "Keep validation runtime inputs and runner selection unchanged",
+      "matchDepTypes": [
+        "uses-with",
+        "github-runner"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "Limit automatic update proposals to existing major versions",
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "enabled": false
+    }
   ]
 }
